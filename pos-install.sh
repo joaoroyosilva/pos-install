@@ -4,10 +4,6 @@
 
 sudo rm /var/lib/dpkg/lock-frontend; sudo rm /var/cache/apt/archives/lock ;
 
-## Adicionando/Confirmando arquitetura de 32 bits ##
-
-sudo dpkg --add-architecture i386 
-
 ## Atualizando o repositório ##
 
 sudo apt update
@@ -17,6 +13,8 @@ sudo apt update
 sudo apt-add-repository ppa:graphics-drivers/ppa -y
 
 sudo add-apt-repository -y ppa:libreoffice/ppa
+
+sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
 
 sudo apt install snapd -y
 
@@ -53,7 +51,7 @@ sudo apt-get --fix-broken install -y
 ## Programas do repositório APT##
 
 
-sudo apt install git gdebi remmina remmina-rdp-plugin -y
+sudo apt install git gdebi remmina remmina-plugin-rdp unzip unrar curl fonts-firacode -y
 
 
 ## Instalando pacotes Snap ##
@@ -66,6 +64,25 @@ sudo snap install phpstorm --classic
 
 sudo snap install android-studio --classic
 
+## Instalação do node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+
+cd
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+
+## Configuração do android-studio
+
+sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager
+
+sudo adduser $USER libvirt
+
+sudo adduser $USER libvirt-qemu
+
+sudo adduser $USER kvm
+
 ## Finalização, atualização e limpeza##
 
 
@@ -74,6 +91,8 @@ sudo apt update && sudo apt dist-upgrade -y
 sudo apt autoclean 
 
 sudo apt autoremove -y
+
+sudo reboot now
 
 echo "Chegamos ao final"
 
