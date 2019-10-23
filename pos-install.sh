@@ -10,11 +10,13 @@ sudo apt update
 
 ## Adicionando repositórios de terceiros e suporte a Snap ##
 
+sudo apt install software-properties-common -y
+
 sudo apt-add-repository ppa:graphics-drivers/ppa -y
 
-sudo add-apt-repository -y ppa:libreoffice/ppa
+sudo add-apt-repository ppa:libreoffice/ppa -y
 
-sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
+sudo apt-add-repository ppa:remmina-ppa-team/remmina-next -y
 
 sudo apt install snapd -y
 
@@ -24,7 +26,7 @@ sudo apt update
 
 ## Download e instalaçao de programas externos ##
 
-cd /home/$USER/Downloads/
+cd $HOME/Downloads/
 
 wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
@@ -42,6 +44,8 @@ wget -c https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb
 
 wget -c https://ufpr.dl.sourceforge.net/project/jasperstudio/JaspersoftStudio-6.10.0/TIB_js-studiocomm_6.10.0_linux_amd64.deb
 
+wget -c https://dl.teamviewer.com/download/linux/version_14x/teamviewer_14.6.2452_amd64.deb
+
 ## Instalando pacotes .deb baixados na sessão anterior ##
 
 sudo dpkg -i *.deb
@@ -51,7 +55,7 @@ sudo apt-get --fix-broken install -y
 ## Programas do repositório APT##
 
 
-sudo apt install git gdebi remmina remmina-plugin-rdp unzip unrar curl fonts-firacode -y
+sudo apt install git gdebi remmina remmina-plugin-rdp unzip unrar curl fonts-firacode gparted -y
 
 
 ## Instalando pacotes Snap ##
@@ -75,7 +79,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 ## Configuração do android-studio
 
-sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager
+sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager -y
 
 sudo adduser $USER libvirt
 
@@ -83,14 +87,22 @@ sudo adduser $USER libvirt-qemu
 
 sudo adduser $USER kvm
 
+echo "export ANDROID_HOME=$HOME/Android/Sdk" >> $HOME/.bashrc
+echo "export PATH=\$PATH:\$ANDROID_HOME/emulator" >> $HOME/.bashrc
+echo "export PATH=\$PATH:\$ANDROID_HOME/tools" >> $HOME/.bashrc
+echo "export PATH=\$PATH:\$ANDROID_HOME/tools/bin" >> $HOME/.bashrc
+echo "export PATH=\$PATH:\$ANDROID_HOME/platform-tools" >> $HOME/.bashrc
+
 ## Finalização, atualização e limpeza##
 
 
 sudo apt update && sudo apt dist-upgrade -y
 
-sudo apt autoclean 
+sudo apt autoclean -y
 
 sudo apt autoremove -y
+
+rm $HOME/Downloads/*
 
 sudo reboot now
 
