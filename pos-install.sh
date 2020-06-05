@@ -36,7 +36,6 @@ wget -c https://github.com/infinitered/reactotron/releases/download/v2.17.1/reac
 
 wget -c https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.deb
 
-
 wget -c https://dl.teamviewer.com/download/linux/version_14x/teamviewer_14.6.2452_amd64.deb
 
 ## Instalando pacotes .deb baixados na sessão anterior ##
@@ -47,9 +46,7 @@ sudo apt-get --fix-broken install -y
 
 ## Programas do repositório APT##
 
-
 sudo apt install git gdebi remmina remmina-plugin-rdp unzip unrar curl fonts-firacode gparted zsh -y
-
 
 ## Instalando pacotes Snap ##
 
@@ -65,7 +62,6 @@ sudo snap install phpstorm --classic
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
 
 cd
-
 
 ## Configuração do android-studio
 
@@ -83,6 +79,7 @@ echo "export PATH=\$PATH:\$ANDROID_HOME/tools" >> $HOME/.bashrc
 echo "export PATH=\$PATH:\$ANDROID_HOME/tools/bin" >> $HOME/.bashrc
 echo "export PATH=\$PATH:\$ANDROID_HOME/platform-tools" >> $HOME/.bashrc
 
+<<<<<<< HEAD
 
 echo "export ANDROID_HOME=$HOME/Android/Sdk" >> $HOME/.zshrc
 echo "export PATH=\$PATH:\$ANDROID_HOME/emulator" >> $HOME/.zshrc
@@ -119,8 +116,8 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 
-## Finalização, atualização e limpeza##
 
+## Finalização, atualização e limpeza##
 
 sudo apt update && sudo apt dist-upgrade -y
 
